@@ -9,9 +9,17 @@ class UserRepository extends BaseRepository
     public function verifyCredentials($username, $password)
     {
 		try {
-			return User::where('username', $username)
-                ->where('password', $password)
-                ->first();
+			$user = User::where('username', $username)->first();
+
+            if (!$user) {
+                return false;
+            }
+            
+            if (Hash::check($password, $user->password)) {
+                return true;
+            }
+
+            return false;
 		} catch (\Exception $e) {
 			return $e->getMessage();
 		}
