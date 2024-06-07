@@ -10,7 +10,7 @@ class User extends Authenticatable{
 
     protected $connection = 'sqlsrv';
     protected $table = 'tbl_user';
-    protected $primaryKey = 'login';
+    protected $primaryKey = 'username';
     public $incrementing = false;
     protected $fillable = [
         'username',
