@@ -16,7 +16,7 @@ class User extends Authenticatable{
         'username',
         'password',
         'email',
-        'nome',
+        'name',
         'is_active',
         'created_at',
         'updated_at'
