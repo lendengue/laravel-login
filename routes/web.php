@@ -4,11 +4,16 @@ use App\Http\Controllers\HomeController;
 use App\Http\Controllers\LoginController;
 use Illuminate\Support\Facades\Route;
 
+
+Route::get('/', function () {
+    return redirect()->route('login-index');
+});
+
 Route::middleware('guest')
     ->prefix('login')
     ->group(function () {
         Route::controller(LoginController::class)->group(function () {
-            Route::get('/', 'showLoginForm')->name('login-form');
+            Route::get('/', 'showLoginForm')->name('login-index');
             Route::post('/', 'login')->name('login');
         });
     });

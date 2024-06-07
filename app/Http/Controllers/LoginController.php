@@ -25,7 +25,7 @@ class LoginController extends Controller
     {
         $credentials = [
             'username' => $request['username'],
-            'password' => Hash::make($request['password'])
+            'password' => $request['password']
         ];
         
         $verifyCredentials = $this->userRepository->verifyCredentials($credentials['username'], $credentials['password']);
@@ -34,7 +34,6 @@ class LoginController extends Controller
             return redirect()->back()->with(['error' => 'Invalid credentials.'])
                 ->withInput($request->only(['username']));
         }
-        
         if (Auth::attempt($credentials)) {
             $this->setSessionData(Auth::user());
             
