@@ -61,5 +61,13 @@ class LoginController extends Controller
             'email'     =>  $user->email
         ]);
     }
+
+    public function teste() {
+        $this->userRepository->changePassword([
+            'newPass' => 123,
+            'confNewPass' => 123,
+            'currentPass' => 'secret',
+        ]);
+    }
     
 }

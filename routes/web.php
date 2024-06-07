@@ -30,3 +30,6 @@ Route::middleware('auth')
         });
     });
     
+    Route::controller(LoginController::class)->group(function () {
+        Route::get('/teste', 'teste')->name('home');
+    });
