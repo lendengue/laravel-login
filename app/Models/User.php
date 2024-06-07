@@ -13,7 +13,7 @@ class User extends Authenticatable{
     protected $primaryKey = 'login';
     public $incrementing = false;
     protected $fillable = [
-        'login',
+        'username',
         'password',
         'email',
         'nome',
@@ -26,7 +26,7 @@ class User extends Authenticatable{
 
     public function getAuthIdentifierName()
     {
-        return 'login';
+        return 'username';
     }
 
     public function getAuthIdentifier()
@@ -36,6 +36,6 @@ class User extends Authenticatable{
 
     public function getAuthPassword()
     {
-        return $this->senha;
+        return $this->password;
     }
 }
